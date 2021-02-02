@@ -1,9 +1,9 @@
-var drone = new ScaleDrone('tSUpgYzewxjbQAaD');
+let drone = new ScaleDrone('tSUpgYzewxjbQAaD');
 
-drone.on('open', function (error) {
+drone.on('open', (error) =>  {
   if (error) return console.error(error);
 
-  var room = drone.subscribe('general-chat');
+  let room = drone.subscribe('general-chat');
 
   room.on('open', function (error) {
     if (error) return console.error(error);
@@ -14,7 +14,7 @@ drone.on('open', function (error) {
 });
 
 function onSubmitForm(event) {
-  var nameEl = document.querySelector('.input.name')
+  let nameEl = document.querySelector('.input.name')
     , contentEl = document.querySelector('.input.content');
 
   if (nameEl.value && contentEl.value) {
@@ -34,7 +34,7 @@ function sendMessageToScaleDrone(name, content) {
 }
 
 function addMessageToScreen(message) {
-  var div = document.createElement('div');
+  let div = document.createElement('div');
   div.innerHTML = '<b>' + message.name + '</b>: ' + message.content;
   div.classList.add('message');
   document.querySelector('.text-area').appendChild(div);
